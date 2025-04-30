@@ -1,0 +1,90 @@
+.leaderboard-modal {
+  max-width: 700px;
+}
+
+.leaderboard-content {
+  padding: 0 20px 20px 20px;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px;
+  padding: 10px 0;
+  border-bottom: 2px solid #eee;
+  font-weight: 600;
+  color: #555;
+}
+
+.leaderboard-list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.leaderboard-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.student-rank {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.rank-medal {
+  margin-left: 5px;
+  font-size: 1rem;
+}
+
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.student-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.student-score {
+  font-weight: 600;
+  color: #4CAF50;
+  text-align: right;
+}
+
+/* Top 3 styling */
+.leaderboard-item:nth-child(1) .student-rank {
+  color: #FFD700; /* Gold */
+}
+
+.leaderboard-item:nth-child(2) .student-rank {
+  color: #C0C0C0; /* Silver */
+}
+
+.leaderboard-item:nth-child(3) .student-rank {
+  color: #CD7F32; /* Bronze */
+}
+
+@media (max-width: 768px) {
+  .leaderboard-header, .leaderboard-item {
+    grid-template-columns: 60px 1fr 80px;
+  }
+  
+  .student-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}

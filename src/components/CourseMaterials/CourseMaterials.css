@@ -1,0 +1,119 @@
+.course-materials {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.course-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.course-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.course-tab i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.course-tab span {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.course-tab:hover {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.course-tab:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .course-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 8px;
+  }
+
+  .course-tab {
+    min-width: 80px;
+    padding: 8px 10px;
+  }
+}
+
+.materials-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.material-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.material-icon {
+  color: #666;
+  width: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.material-label {
+  color: #666;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.material-value {
+  color: #333;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.material-value.price {
+  color: #f44336;
+  font-size: 1.2rem;
+}

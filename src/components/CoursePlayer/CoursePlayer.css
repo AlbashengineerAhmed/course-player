@@ -1,0 +1,329 @@
+.new-course-player {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+}
+
+.course-player-layout {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Allow wrapping for mobile */
+}
+
+/* Desktop layout */
+@media (min-width: 993px) {
+  .course-player-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas:
+      "player sidebar"
+      "materials sidebar"
+      "comments sidebar";
+    gap: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .course-player-layout.wide-mode {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-player-section {
+    grid-area: player;
+  }
+
+  .course-content-sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .content-materials-section {
+    grid-area: materials;
+  }
+
+  .content-comments-section {
+    grid-area: comments;
+  }
+
+  .course-player-main {
+    display: contents; /* Use grid layout instead */
+  }
+}
+
+.course-progress-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+@media (max-width: 992px) {
+  .course-player-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile order: Player -> Content -> Materials -> Comments */
+  .content-player-section {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    order: 1; /* Player at top */
+  }
+
+  .course-content-sidebar {
+    max-width: 100%;
+    width: 100%;
+    order: 2; /* Content below player */
+    position: static; /* Remove sticky on mobile */
+    height: auto;
+    overflow: visible;
+  }
+
+  .course-player-main {
+    order: 3; /* Materials and comments below content */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Reorder sections on mobile */
+  .content-materials-section {
+    order: 1; /* Materials first in main */
+  }
+
+  .content-comments-section {
+    order: 2; /* Comments second in main */
+  }
+}
+
+@media (max-width: 768px) {
+  .new-course-player {
+    padding: 0;
+  }
+
+  .course-player-layout {
+    gap: 15px;
+  }
+
+  .content-player-section {
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ensure player sticks to top on scroll */
+  .content-player-section {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    padding: 0 !important;
+    margin-bottom: 0;
+  }
+
+  /* Add some spacing between sections on mobile */
+  .content-materials-section,
+  .content-comments-section {
+    margin: 10px;
+  }
+
+  /* Ensure course materials display properly on mobile */
+  .materials-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .material-item {
+    padding: 12px 8px;
+  }
+
+  .material-icon {
+    width: 30px;
+  }
+
+  .material-label {
+    min-width: 90px;
+  }
+
+  .material-value.price {
+    font-size: 1.3rem;
+  }
+}
+
+.content-materials-section,
+.content-comments-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.content-player-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.select-content-message {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
+
+.content-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.content-description {
+  margin-top: 0;
+  color: #555;
+}
+
+.content-duration,
+.content-pages,
+.content-file-size {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
+.content-status {
+  margin-top: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.take-quiz-button,
+.start-quiz-button,
+.mark-completed-button,
+.next-lesson-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.take-quiz-button:hover,
+.start-quiz-button:hover,
+.mark-completed-button:hover:not(:disabled),
+.next-lesson-button:hover {
+  background-color: #45a049;
+}
+
+.mark-completed-button:disabled {
+  background-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.next-lesson-container {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.autoplay-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.countdown {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.cancel-autoplay-btn {
+  background: none;
+  border: 1px solid #d9d9d9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.cancel-autoplay-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #bbb;
+}
+
+/* Quiz specific styles */
+.quiz-preview {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-preview-info {
+  margin-bottom: 15px;
+}
+
+.quiz-questions-count {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}

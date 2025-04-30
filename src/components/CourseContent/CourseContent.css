@@ -1,0 +1,242 @@
+.course-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.course-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.course-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.course-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.module {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-info {
+  flex: 1;
+}
+
+.module-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.module-description {
+  color: #666;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.module-toggle {
+  font-size: 1.5rem;
+  color: #999;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.module-toggle.expanded {
+  color: #4CAF50;
+}
+
+/* Control visibility of lessons list */
+.lessons-list.visible {
+  display: flex !important;
+  height: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.lessons-list.hidden {
+  display: none !important;
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  /* No max-height to show all lessons at once */
+  transition: all 0.3s ease;
+  height: auto !important; /* Force height to auto */
+  overflow: visible !important; /* Ensure content is visible */
+  opacity: 1 !important; /* Ensure content is visible */
+  max-height: none !important; /* Prevent any max-height limitation */
+  min-height: auto !important; /* Allow natural height */
+  position: static !important; /* Prevent positioning issues */
+  flex: 1; /* Take available space */
+  width: 100%; /* Full width */
+}
+
+.lesson-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.lesson-item:last-child {
+  border-bottom: none;
+}
+
+.lesson-item.unlocked:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.lesson-item.locked {
+  opacity: 0.7;
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.lesson-item.locked::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  z-index: 1;
+}
+
+.lesson-item.completed {
+  border-left: 3px solid #4CAF50;
+}
+
+.lesson-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lesson-icon {
+  color: #666;
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Specific colors for different content types */
+.lesson-icon .fa-file-video {
+  color: #f44336;
+}
+
+.lesson-icon .fa-file-pdf {
+  color: #e91e63;
+}
+
+.lesson-icon .fa-question-circle {
+  color: #2196f3;
+}
+
+.lesson-title {
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.lesson-completed-icon {
+  color: #4CAF50;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-left: 5px;
+}
+
+.lesson-source {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.lesson-source.youtube {
+  color: #FF0000;
+}
+
+.lesson-source.local {
+  color: #2196F3;
+}
+
+.lesson-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.lesson-questions {
+  background-color: #e8f5e9;
+  color: #4CAF50;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lesson-duration {
+  background-color: #ffebee;
+  color: #f44336;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lesson-lock {
+  color: #999;
+  margin-left: 5px;
+  flex-shrink: 0;
+}
+
+

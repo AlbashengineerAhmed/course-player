@@ -1,0 +1,24 @@
+.course-header {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .course-header {
+    padding: 15px;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.course-title {
+  color: #333;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
